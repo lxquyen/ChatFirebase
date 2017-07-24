@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "502774647145",
+    "firebase_url": "https://chatfirebase-aa3f5.firebaseio.com",
+    "project_id": "chatfirebase-aa3f5",
+    "storage_bucket": "chatfirebase-aa3f5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:502774647145:android:24d2dc03e6c0de2a",
+        "android_client_info": {
+          "package_name": "com.furuichi.chatfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "502774647145-lv997tlk0heve9551sqkpubh84l8q0j0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_XBAp8Ui1hS5GCveJo_pnhoSazolfFPo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

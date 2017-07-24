@@ -1,0 +1,71 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.0"
+
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+ext.VERSION_RX_JAVA = "2.0.6"
+ext.VERSION_RX_ANDROID = "2.0.1"
+ext.VERSION_PICASSO = "2.5.2"
+ext.VERSION_GSON = "2.8.0"
+ext.VERSION_OK_HTTP = "3.7.0"
+ext.VERSION_RETROFIT = "2.2.0"
+ext.VERSION_EVENT_BUS = "3.0.0"
+ext.VERSION_TIMBER = "4.5.1"
+dependencies {
+    //multidex support
+    compile 'com.android.support:multidex:1.0.1'
+
+
+
+
+
+    //rx java-android
+    compile "io.reactivex.rxjava2:rxjava:$VERSION_RX_JAVA"
+    compile "io.reactivex.rxjava2:rxandroid:$VERSION_RX_ANDROID"
+
+    //picasso
+    compile "com.squareup.picasso:picasso:$VERSION_PICASSO"
+
+    // Gson
+    compile "com.google.code.gson:gson:$VERSION_GSON"
+
+    // OkHttp
+    compile "com.squareup.okhttp3:okhttp:$VERSION_OK_HTTP"
+    compile "com.squareup.okhttp3:logging-interceptor:$VERSION_OK_HTTP"
+
+    // Retrofit
+    compile "com.squareup.retrofit2:retrofit:$VERSION_RETROFIT"
+    compile "com.squareup.retrofit2:converter-gson:$VERSION_RETROFIT"
+    compile "com.squareup.retrofit2:adapter-rxjava:$VERSION_RETROFIT"
+
+    //event bus
+    compile "org.greenrobot:eventbus:$VERSION_EVENT_BUS"
+
+    //Timber
+    compile "com.jakewharton.timber:timber:$VERSION_TIMBER"
+
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testImplementation 'junit:junit:4.12'
+}

@@ -1,0 +1,57 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.0"
+    defaultConfig {
+        applicationId "com.furuichi.chatfirebase"
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
+}
+ext.VERSION_SUPPORT = "26.0.0-beta2"
+ext.VERSION_DAGGER = "2.9"
+ext.VERSION_BUTTER_KNIFE = "8.7.0"
+ext.VERSION_FIREBASE = "11.0.2"
+dependencies {
+    //support design
+    implementation "com.android.support:appcompat-v7:$VERSION_SUPPORT"
+    implementation "com.android.support:recyclerview-v7:$VERSION_SUPPORT"
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    implementation project(':common-utils')
+    //Dagger 2
+    compile "com.google.dagger:dagger:$VERSION_DAGGER"
+    annotationProcessor "com.google.dagger:dagger-compiler:$VERSION_DAGGER"
+    provided 'javax.annotation:jsr250-api:1.0'
+    //butter knife
+    compile "com.jakewharton:butterknife:$VERSION_BUTTER_KNIFE"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$VERSION_BUTTER_KNIFE"
+
+    //Firebase
+    implementation "com.google.firebase:firebase-auth:$VERSION_FIREBASE"
+    implementation "com.google.firebase:firebase-messaging:$VERSION_FIREBASE"
+    implementation "com.google.firebase:firebase-database:$VERSION_FIREBASE"
+
+
+    //Unit
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testImplementation 'junit:junit:4.12'
+
+}
+apply plugin: 'com.google.gms.google-services'
